@@ -130,8 +130,8 @@ body {
   border-radius: 5px;
   cursor: pointer;
   font-size: 18px; /* Increase the font size */
-  margin-bottom: 20px; /* Add some margin below the button */
-  margin-top: 20px;
+  margin-bottom: 5px; /* Add some margin below the button */
+  margin-top: 5px;
 }
 
 @media (max-width: 768px) {
@@ -156,6 +156,9 @@ body {
     width: 100%;
   }
 }
+img.register-form-logo{
+  margin-top:50px;
+}
 
 @media (max-width: 480px) {
   .register-form-header {
@@ -163,9 +166,8 @@ body {
   }
 
   .register-form-logo {
-    width: 100px; /* Adjust the logo size for very small screens */
-  }
-
+    width: 100%;
+}
   .register-form {
     padding: 15px; /* Further reduce padding for very small screens */
   }
@@ -185,4 +187,22 @@ body {
   .card-element {
     width: 100%;
   }
+}
+.paypal-container {
+  max-height: 80vh;  /* Adjust based on your needs, vh stands for viewport height */
+  overflow-y: auto;  /* Allows scrolling within the container */
+  padding-top: 20px; /* Adds space on the top */
+  margin-top: 60px;
+}
+
+/* You may need to adjust the inner form or modal positioning */
+.modal-content {
+  position: relative;
+  top: 50%;
+  margin-top: 50px;
+  transform: translateY(-50%);
+}
+
+.credit-card-visible {
+  margin-top: 40px; /* Increase if the credit card form still appears too close to the top */
 }

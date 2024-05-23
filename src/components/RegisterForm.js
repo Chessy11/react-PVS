@@ -118,8 +118,14 @@ const RegisterForm = () => {
         <img src={logo} alt="Logo" className="register-form-logo" />
         {balance && (
           <div className="balance-info">
-            Balance: {balance.balance.toFixed(2)} {balance.currency}
-          </div>
+  Balance: {balance.balance.toFixed(2)} {balance.currency}<br />
+  <br />
+  You can deposit the balance with PayPal or debit card. Payments will be available to use next morning.<br />
+
+  I have funded this project, but as each call needs a deposit, I can't fund it continuously.<br />
+  Also, the funding provided by you will be the indicator for me: did you like the service or not.
+</div>
+
         )}
         {!showPaymentForm && (
           <button className="pay-here-button" onClick={() => setShowPaymentForm(true)}>
