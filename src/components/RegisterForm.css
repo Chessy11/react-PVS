@@ -1,0 +1,188 @@
+body {
+  background-color: #f7f8fc; /* Set the same background color for the whole page */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 20px; /* Add some padding to the body to ensure centering */
+  box-sizing: border-box;
+}
+
+.register-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7f8fc; /* Ensure the background color matches the form's background */
+  width: 100%;
+}
+
+.register-form-header {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%; /* Ensure the header takes full width */
+}
+
+.register-form-logo {
+  width: 100%;
+  max-width: 200px;
+}
+
+.register-form {
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px; /* Increase the max-width for the form */
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+  margin: 0 auto; /* Center the form */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 20px; /* Make the input fields wider */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 18px; /* Increase the font size */
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+.register-button {
+  width: 100%;
+  padding: 20px; /* Make the button wider */
+  background-color: #E6571C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px; /* Increase the font size */
+}
+
+.register-button:hover {
+  background-color: #fb923c;
+}
+
+.message {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #ff0000;
+}
+
+.payment-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px; /* Add some margin to separate it from the form */
+}
+
+.payment-section label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.payment-section input {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.card-element {
+  width: 300px;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height:25px;
+}
+
+.pay-button {
+  padding: 10px 20px;
+  background-color: #f96332;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pay-here-button {
+  padding: 10px 20px;
+  background-color: #f96332;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px; /* Increase the font size */
+  margin-bottom: 20px; /* Add some margin below the button */
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .register-form {
+    max-width: 100%;
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 15px; /* Adjust padding for smaller screens */
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  .register-button {
+    padding: 15px; /* Adjust padding for smaller screens */
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
+
+  .payment-section input,
+  .card-element {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-form-header {
+    margin-bottom: 10px;
+  }
+
+  .register-form-logo {
+    width: 100px; /* Adjust the logo size for very small screens */
+  }
+
+  .register-form {
+    padding: 15px; /* Further reduce padding for very small screens */
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 10px; /* Further adjust padding for very small screens */
+    font-size: 14px; /* Further adjust font size for very small screens */
+  }
+
+  .register-button {
+    padding: 10px; /* Further adjust padding for very small screens */
+    font-size: 14px; /* Further adjust font size for very small screens */
+  }
+
+  .payment-section input,
+  .card-element {
+    width: 100%;
+  }
+}
