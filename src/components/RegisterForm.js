@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './RegisterForm.css';
 import logo from './Logo/firetech.png';
-import PayPalButton from './PayPalbutton'; // Adjust the path if needed
+import PayPalButton from './PayPalbutton';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -20,9 +20,11 @@ const RegisterForm = () => {
   const [balance, setBalance] = useState(null);
   const [showPaymentForm, setShowPaymentForm] = useState(false);
 
+  const apiUrl = process.env.REACT_APP_API_URL;
+
   const fetchBalance = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/twilio_balance');
+      const response = await axios.get(`${apiUrl}/twilio_balance`);
       setBalance(response.data);
     } catch (error) {
       console.error('Error fetching Twilio balance:', error);
@@ -35,7 +37,7 @@ const RegisterForm = () => {
 
   const checkVerificationStatus = async (id) => {
     try {
-      const verificationResponse = await axios.get(`http://localhost:8080/check_verification/${id}`);
+      const verificationResponse = await axios.get(`${apiUrl}/check_verification/${id}`);
       if (verificationResponse.data.is_verified) {
         setMessage('Congrats, you are verified!');
       } else if (verificationResponse.data.verification_attempts >= 2) {
@@ -53,7 +55,7 @@ const RegisterForm = () => {
   const checkCallStatus = async (id) => {
     let interval = setInterval(async () => {
       try {
-        const callStatusResponse = await axios.get(`http://localhost:8080/check_call_status/${id}`);
+        const callStatusResponse = await axios.get(`${apiUrl}/check_call_status/${id}`);
         if (callStatusResponse.data.call_status === 'completed') {
           clearInterval(interval);
           await checkVerificationStatus(id);
@@ -97,7 +99,7 @@ const RegisterForm = () => {
         return;
       }
 
-      const response = await axios.post('http://localhost:8080/register', formData);
+      const response = await axios.post(`${apiUrl}/register`, formData);
       setUserId(response.data.id);
     } catch (error) {
       setIsLoading(false);
@@ -118,14 +120,12 @@ const RegisterForm = () => {
         <img src={logo} alt="Logo" className="register-form-logo" />
         {balance && (
           <div className="balance-info">
-  Balance: {balance.balance.toFixed(2)} {balance.currency}<br />
-  <br />
-  You can deposit the balance with PayPal or debit card. Payments will be available to use next morning.<br />
-
-  I have funded this project, but as each call needs a deposit, I can't fund it continuously.<br />
-  Also, the funding provided by you will be the indicator for me: did you like the service or not.
-</div>
-
+            Balance: {balance.balance.toFixed(2)} {balance.currency}<br />
+            <br />
+            You can deposit the balance with PayPal or debit card. Payments will be available to use next morning.<br />
+            I have funded this project, but as each call needs a deposit, I can't fund it continuously.<br />
+            Also, the funding provided by you will be the indicator for me: did you like the service or not.
+          </div>
         )}
         {!showPaymentForm && (
           <button className="pay-here-button" onClick={() => setShowPaymentForm(true)}>

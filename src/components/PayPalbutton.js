@@ -13,7 +13,7 @@ const PayPalButton = () => {
   };
 
   const handleCreateOrder = (data, actions) => {
-    const amount = "0.70"; // Default amount
+    const amount = "1.20"; // Default amount
     return actions.order.create({
       purchase_units: [{
         amount: {
