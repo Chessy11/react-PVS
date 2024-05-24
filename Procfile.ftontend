@@ -1,0 +1,1 @@
+heroku buildpacks:add https://github.com/heroku/heroku-buildpack-multi-procfile --app pvs-prod
